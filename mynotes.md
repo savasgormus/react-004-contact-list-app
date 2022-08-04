@@ -1,0 +1,2 @@
+- app'imizi 2 parçaya bölerek yapacağız. bir contacts kısmı bir de ekleme kısmı. ilk önce contacts kısmına bakalım. src/components içerisine Contacts/index.jsx dosyamızı rafce ile oluşturduk.
+- şimdi Contacts componentini de 2 parçaya böleceğiz ve her birini yine contacts içerisindeki contacts.jsx'e import edeceğiz. Form ve List isminde Contacts altında 2 klasör oluşturduk ve her birisine birer jsx dosyası açıp rafce ile alt componentlerimizi oluşturup bir üst component'e import ettik.
