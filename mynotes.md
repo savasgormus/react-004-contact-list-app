@@ -101,7 +101,7 @@ console.log("filtered", filtered);
 
 - özetle contacts propunu aldık ve bunu filtreliyoruz. bu filter her defasında bize bir item veriyor. biz bu item'ı obje olduğu için keylerini ayırıyoruz. bu keylerden herhangi birini (fullname veya phone_number) some() metoduyla arıyoruz. some() içerisine yaptığımız işlem ise filtreleme işlemini daha basite indirmek için string, lowercase ve include ekliyoruz ki herhangi bir harf ya da rakam girdiğimizde bize sonucu getirsin.
 
-
+# Stil Tanımlarının Yapılması
 
 
 
