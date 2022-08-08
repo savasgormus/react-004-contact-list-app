@@ -54,20 +54,52 @@
 
 - onSubmit fonksiyonumuzun en alt kısmına setForm ekleyerek değişiklik yapıldıktan sonra görmek istediğimiz ifadeleri yapabiliriz. setForm({fullname:"", phone_number:""}) ile submit ettiğimizde ikisi de boş string olarak geri gelecektir.
 
+# Kayıtların Listelenmesi
 
+- List componentimize Contacts.jsx'den props göndereceğiz ve kaydettiğimiz her bir öğenin ekranda görünmesini sağlayacağız.
+- bir ul tag'i içerisine gönderdiğimiz prop'u(contacts) map ile li tag'i içerisinde sergileyeceğiz.
 
+```jsx
+const List = ( {contacts}) => {
+  return (
+    <div>
+      <ul>
+        {
+        contacts.map((contact, id) => 
+          <li key={id}>{contact.fullname}</li>)
+        }
+      </ul>
+    </div>
+  )
+}
+```
 
+# Filtreleme işlemi
 
+- Yine list componentimizin içerisindeyiz. map ile oluşturduğumuz listenin üstüne bir input alanı gireceğiz ve burada filtreleme işlemi yapacağız.
 
+- input alanımızın çalışması için state'imizi boş bir string olarak tanımladık ve onchange özelliğini input'umuza ekledik. (input alanında text girebilmek için - daha önceki derslerde işlemiştik.)
 
+- yine yukarıda filtered isimli bir değişken oluşturacağız ve gelen prop'umuzu burada filtreleyip istediğimiz bilgiyi almaya çalışacağız.
 
+```jsx
+const filtered = contacts.filter((item) => {
+    return Object.keys(item).some( (key) => 
+      item[key]
+        .toString()
+        .toLowerCase()
+        .includes(filterText.toLocaleLowerCase())
+     )
+  })
 
+console.log("filtered", filtered);
+```
 
+- bu işlem sayesinde input alanına herhangi bir harf(küçük ya da büyük harf artık farketmez) ya da numara girersek console'da array içerisinde filtrelenmiş sonuçları görmeye başlayacağız.
 
+- artık tek yapmamız gereken ul içerinde map yaptığımız contacts'i filtered ile değiştirmek. böylece arama sonuçlarını ekranımızda da görebileceğiz.
 
-
-
-
+- özetle contacts propunu aldık ve bunu filtreliyoruz. bu filter her defasında bize bir item veriyor. biz bu item'ı obje olduğu için keylerini ayırıyoruz. bu keylerden herhangi birini (fullname veya phone_number) some() metoduyla arıyoruz. some() içerisine yaptığımız işlem ise filtreleme işlemini daha basite indirmek için string, lowercase ve include ekliyoruz ki herhangi bir harf ya da rakam girdiğimizde bize sonucu getirsin.
 
 
 
