@@ -22,12 +22,23 @@ const List = ( {contacts}) => {
 
       <input placeholder="Filter Contacts" value={filterText} onChange={(e) => setFilterText(e.target.value)} />
 
-      <ul>
+      <ul className='list'>
         {
         filtered.map((contact, id) => 
-          <li key={id}>{contact.fullname}</li>)
+          <li key={id}>
+            <span>
+              {contact.fullname}
+            </span>
+            <span>
+                {contact.phone_number}
+            </span>
+          </li>)
         }
       </ul>
+
+      <p>
+        Total Contacts: {filtered.length}
+      </p>
     </div>
   )
 }

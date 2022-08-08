@@ -1,8 +1,7 @@
 import Form from "./Form/Form"
 import List from "./List/List"
 import { useState, useEffect} from "react"
-
-
+import "./Contacts.css"
 const Contacts = () => {
   const [contacts, useContacts] = useState([
     {
@@ -23,7 +22,8 @@ const Contacts = () => {
   },[contacts])
 
   return (
-    <div>
+    <div className="container">
+      <h1>Contacts</h1>
       <List  contacts={contacts}/>
       <Form addContact={useContacts} contacts={contacts}/>
 
